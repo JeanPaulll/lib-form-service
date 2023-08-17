@@ -1,4 +1,20 @@
-# FormServiceDynamic
+<p align="center">
+  <a href="#">
+    <img src="form-service-dynamic.jpg" alt="Is a utility library for creating Angular forms with ease">
+  </a>
+</p>
+
+<h3 align="center">FormServiceDynamic</h3>
+
+<p align="center">
+  The `FormServiceDynamic` is a utility library for creating Angular forms with ease. It provides a simple way to generate
+reactive forms and apply validations to form controls.
+  <br>
+  <br>
+  <a href="https://github.com/JeanPaulll/lib-form-service/issues">Report bug</a>
+  ·
+  <a href="https://github.com/JeanPaulll/lib-form-service/issues/new?assignees=&labels=feature&template=feature_request.yml">Request feature</a>
+</p>
 
 [![GitHub top language](https://img.shields.io/github/languages/top/JeanPaulll/lib-form-service#readme.svg)]()
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/JeanPaulll/lib-form-service.svg)]()
@@ -8,9 +24,6 @@
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)](https://github.com/JeanPaulll/lib-form-service)
 [![npm](https://img.shields.io/npm/v/handle-json-payload.svg)]()
 [![Website](https://img.shields.io/website-up-down-green-red/http/shields.io.svg?label=agenciacriamais)](http://www.agenciacriamais.com.br)
-
-The `FormServiceDynamic` is a utility library for creating Angular forms with ease. It provides a simple way to generate
-reactive forms and apply validations to form controls.
 
 ## Installation
 
@@ -25,43 +38,43 @@ npm install form-service-dynamic --save
 ```typescript
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {FormServiceDynamic} from 'form-service-dynamic'; 
+import {FormServiceDynamic} from 'form-service-dynamic';
 
 interface Person {
-    name: string;
-    age: number | null;
-    phones: Phone[];
+  name: string;
+  age: number | null;
+  phones: Phone[];
 }
 
 interface Phone {
-    number: string | null;
-    description: string | null;
-    types: string[];
+  number: string | null;
+  description: string | null;
+  types: string[];
 }
 
 @Component({
-    selector: 'app-your-component',
-    templateUrl: './your-component.component.html',
-    styleUrls: ['./your-component.component.css']
+  selector: 'app-your-component',
+  templateUrl: './your-component.component.html',
+  styleUrls: ['./your-component.component.css']
 })
 export class YourComponent implements OnInit {
-    personForm!: FormGroup;
+  personForm!: FormGroup;
 
-    constructor(private formService: FormServiceDynamic) {
-    }
+  constructor(private formService: FormServiceDynamic) {
+  }
 
-    ngOnInit(): void {
-        this.createForm();
-    }
+  ngOnInit(): void {
+    this.createForm();
+  }
 
-    private createForm(): void {
-        const person: Person = {
-            name: '',
-            age: null,
-            phones: []
-        };
-        this.personForm = this.formService.createForm(person);
-    }
+  private createForm(): void {
+    const person: Person = {
+      name: '',
+      age: null,
+      phones: []
+    };
+    this.personForm = this.formService.createForm(person);
+  }
 }
 ```
 
@@ -71,13 +84,13 @@ export class YourComponent implements OnInit {
 
 ```typescript
 import {
-    FormBuilder,
-    FormGroup,
-    FormControl,
-    Validators,
-    ValidatorFn,
-    AsyncValidatorFn,
-    AbstractControl
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+  ValidatorFn,
+  AsyncValidatorFn,
+  AbstractControl
 } from '@angular/forms';
 import {FormServiceDynamic, FieldConfig} from 'form-service-dynamic';
 ```
@@ -86,14 +99,14 @@ import {FormServiceDynamic, FieldConfig} from 'form-service-dynamic';
 
 ```typescript
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class YourFormService extends FormServiceDynamic {
-    constructor(private formBuilder: FormBuilder) {
-        super(formBuilder);
-    }
+  constructor(private formBuilder: FormBuilder) {
+    super(formBuilder);
+  }
 
-    // Your custom form creation methods can go here
+  // Your custom form creation methods can go here
 }
 ```
 
@@ -101,27 +114,27 @@ export class YourFormService extends FormServiceDynamic {
 
 ```typescript
 interface Phone {
-    number: string | null;
-    description: string | null;
-    types: string[];
+  number: string | null;
+  description: string | null;
+  types: string[];
 }
 
 interface Person {
-    name: string | null;
-    age: number | null;
-    phones: Phone[];
+  name: string | null;
+  age: number | null;
+  phones: Phone[];
 }
 
 const phone: Phone = {
-    number: '',
-    description: '',
-    types: []
+  number: '',
+  description: '',
+  types: []
 };
 
 const person: Person = {
-    name: '',
-    age: null,
-    phones: [phone]
+  name: '',
+  age: null,
+  phones: [phone]
 };
 ```
 
@@ -129,9 +142,9 @@ const person: Person = {
 
 ```typescript
 const options: { [field: string]: CampoConfig } = {
-    name: {value: '', validations: {required: true}},
-    age: {value: null, validations: {required: true, min: 18}},
-    phones: {value: [], validations: {required: true}}
+  name: {value: '', validations: {required: true}},
+  age: {value: null, validations: {required: true, min: 18}},
+  phones: {value: [], validations: {required: true}}
 };
 
 const personForm: FormGroup = this.createForm(person, options);
@@ -142,9 +155,9 @@ const personForm: FormGroup = this.createForm(person, options);
 ```html
 
 <form [formGroup]="personForm">
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name">
-    <!-- More form controls for other fields... -->
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name">
+  <!-- More form controls for other fields... -->
 </form>
 ```
 
@@ -152,15 +165,15 @@ const personForm: FormGroup = this.createForm(person, options);
 
 ```typescript
 const options: { [field: string]: CampoConfig } = {
-    name: {
-        value: '',
-        customValidation: (control: AbstractControl) => {
-            if (control.value && control.value.toLowerCase() === 'admin') {
-                return {forbiddenName: true};
-            }
-            return null;
-        }
-    },
+  name: {
+    value: '',
+    customValidation: (control: AbstractControl) => {
+      if (control.value && control.value.toLowerCase() === 'admin') {
+        return {forbiddenName: true};
+      }
+      return null;
+    }
+  },
 // Other fields...
 };
 ```
@@ -191,7 +204,7 @@ This library was generated with version 16.2.0.
 ## Code scaffolding
 
 Run `ng generate component component-name --project form-service-dynamic` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project form-service-dynamic`.
-> Note: Don't forget to add `--project form-service-dynamic` or else it will be added to the default project in your `angular.json` file. 
+> Note: Don't forget to add `--project form-service-dynamic` or else it will be added to the default project in your `angular.json` file.
 
 ## Build
 
@@ -202,7 +215,6 @@ Run `ng build form-service-dynamic` to build the project. The build artifacts wi
 After building your library with `ng build form-service-dynamic`, go to the dist folder `cd dist/form-service-dynamic` and run `npm publish`.
 
 ## Obs: All version publications will be made by me, after approval by your MR
-
 
 ## Running unit tests
 
