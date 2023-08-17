@@ -1,8 +1,11 @@
 {
   "name": "form-service-dynamic",
-  "version": "1.0.109",
+  "version": "16.2.0",
   "description": "A dynamic form creation service for Angular applications.",
-  "author": "Jean Paul",
+  "author": {
+    "name": "Jean Paul",
+    "email": "jeanpaulwebb@gmail.com"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -12,6 +15,16 @@
     "url": "https://github.com/JeanPaulll/lib-form-service/issues"
   },
   "homepage": "https://github.com/JeanPaulll/lib-form-service#readme",
+  "keywords": [
+    "angular",
+    "formBuilder",
+    "forms",
+    "reactive forms",
+    "form validation",
+    "utility library",
+    "dynamic forms",
+    "Jean Paul"
+  ],
   "peerDependencies": {
     "@angular/common": "^16.2.0",
     "@angular/core": "^16.2.0"
