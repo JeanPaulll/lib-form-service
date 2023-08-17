@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "form-service-dynamic": {
+      "projectType": "library",
+      "root": "projects/form-service-dynamic",
+      "sourceRoot": "projects/form-service-dynamic/src",
+      "prefix": "lib",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/form-service-dynamic/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/form-service-dynamic/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/form-service-dynamic/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/form-service-dynamic/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "639b9261-61cf-4fc2-a7a3-b346b5abef43"
   }
 }

@@ -1,0 +1,26 @@
+button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+button.primary {
+  background-color: blue;
+}
+
+button.secondary {
+  background-color: blueviolet;
+}
+
+button.sm {
+  padding: 3px 6px;
+}
+
+button.md {
+  padding: 6px 12px;
+}
+
+button.lg {
+  padding: 9px 18px;
+}
